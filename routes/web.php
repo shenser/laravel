@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('hello', function () {
     return 'welcome!!!!!';
 });
+
+Route::match(['get', 'post'], 'foo', function () {
+    return 'This is a request from get or post';
+});
