@@ -16,7 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('hello', function () {
-    return 'welcome!!!!!';
+    return 'welcome!!!!!get';
+});
+
+Route::post('hello', function () {
+    return 'welcome!!!!!post';
 });
 
 Route::match(['get', 'post'], 'foo', function () {
