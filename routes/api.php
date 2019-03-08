@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('users/{user}', function (App\User $user) {
+    //return $user->email;
+    return $user;
+});
+
+Route::fallback(function () {
+    return 'hahah';
+});
