@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -16,6 +17,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('user.profile', ['user' => User::findOrFail($id)]);
+        $result = DB::select("select * from users");
+        //DB::insert('insert into users (name, email, password) values (?,?,?)', ['学院君','xueyuanjun.qq.com', 'shenser']);
+        $user = DB::table('users')
+            ->inRandomOrder()
+            ->first();
+        return view('user.profile', ['user' => $user]);
+        //return view('user.profile', ['user' => User::findOrFail($id)]);
     }
 }
